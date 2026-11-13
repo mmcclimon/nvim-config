@@ -14,9 +14,21 @@ fzf.setup({
         },
     },
     buffers = {
+        prompt = "Buf>",
         header = false,
         file_icons = false,
         ignore_current_buffer = true,
+    },
+    fzf_colors = {
+        ["fg"]      = {'fg', {'GruvboxFg3', 'Normal'}},
+        ["fg+"]     = {'fg', {'CursorLine', 'CursorColumn', 'Normal'}},
+        ["prompt"]  = {'fg', {'Comment'}},
+        ["pointer"] = {'fg', {'Normal', 'Exception'}},
+    },
+    hls = {
+        path_linenr = "LineNr",
+        buf_flag_alt = "GruvboxOrange",
+        buf_nr = "Statement",
     },
 })
 
