@@ -20,18 +20,31 @@ vim.opt.listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<" }
 vim.opt.foldlevelstart=99
 vim.opt.foldopen:remove({"block"})
 
-vim.opt.backup = true 
+vim.opt.backup = true
 vim.opt.backupdir = vim.fn.expand("~/.config/nvim/backup")
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "gitcommit",
-  callback = function() 
+  callback = function()
       vim.opt_local.textwidth = 72
   end
 })
 
---[[
+local trailing = vim.api.nvim_create_augroup('trailing', { clear = true })
 
+vim.api.nvim_create_autocmd({'InsertEnter'}, {
+  pattern = '*',
+  group = trailing,
+  callback = function() vim.opt_local.listchars:remove({"trail"}) end
+})
+
+vim.api.nvim_create_autocmd({'InsertLeave'}, {
+  pattern = '*',
+  group = trailing,
+  callback = function() vim.opt_local.listchars:append({trail = "~"}) end
+})
+
+--[[
 
 def g:SyntaxItem(): string
     return synIDattr(synID(line("."), col("."), 0), "name")
@@ -42,32 +55,6 @@ augroup folding
     au!
     au BufReadPre * setlocal foldmethod=indent
     au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
-if has("termguicolors")
-    # mke true colors work under tmux by setting some terminal overrides
-    if ($TERM =~# '\v^(xterm|screen|tmux)-256color')
-        &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-        &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    endif
-    set termguicolors
-endif
-
-# be annoying about extra whitespace
-augroup trailing
-    au!
-    au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-    au InsertEnter * setlocal listchars-=trail:~
-    au InsertLeave * match ExtraWhitespace /\s\+$/
-    au InsertLeave * setlocal listchars+=trail:~
-augroup END
-highlight ExtraWhitespace ctermbg=red guibg=red
-
-# BUT sometimes EOL whitespace is necessary...be less annoying then
-augroup whitespace
-    au!
-    au FileType mail hi ExtraWhitespace ctermbg=NONE guibg=NONE
-    au FileType markdown hi ExtraWhitespace ctermbg=NONE guibg=NONE
 augroup END
 
 # }}}
@@ -86,7 +73,6 @@ g:perl_sub_signatures = 1     # new perls!
 
 # fix crontab bug
 au BufEnter /private/tmp/crontab.* setl backupcopy=yes
-au FileType gitcommit setl tw=72
 
 # }}}
 
