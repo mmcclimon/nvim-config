@@ -49,3 +49,21 @@ vim.pack.add({{ src = "https://github.com/kylechui/nvim-surround" }})
 require("nvim-surround").setup({
     highlight = { duration = 250 },
 })
+
+-- lualine (aka airline)
+vim.pack.add({ 'https://github.com/nvim-lualine/lualine.nvim' })
+require('lualine').setup({
+    options = {
+        theme = custom_gruvbox,
+        section_separators = '',
+        component_separators = '',
+    },
+    sections = {
+        lualine_b = {{"branch", icon = '⎇'}},
+        lualine_x = {
+            {'fileformat', icons_enabled = false },
+        },
+        lualine_y = {},
+        lualine_z = { "%3p%% (%v,%l)" },
+    }
+})
