@@ -32,7 +32,6 @@ fzf.setup({
     },
 })
 
-
 local function findFiles()
     local is_git = vim.fs.root(0, ".git") ~= nil
     if is_git then
@@ -44,3 +43,9 @@ end
 
 vim.keymap.set("n", "<Leader>b", ":FzfLua buffers<cr>", { silent = true })
 vim.keymap.set("n", "<C-P>", findFiles, { silent = true })
+
+-- vim-surround
+vim.pack.add({{ src = "https://github.com/kylechui/nvim-surround" }})
+require("nvim-surround").setup({
+    highlight = { duration = 250 },
+})
