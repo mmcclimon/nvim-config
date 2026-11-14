@@ -63,7 +63,9 @@ require('lualine').setup({
         lualine_x = {
             {'fileformat', icons_enabled = false },
         },
-        lualine_y = {},
+        lualine_y = {
+            { 'lsp_status', icons_enabled = false },
+        },
         lualine_z = { "%3p%% (%v,%l)" },
     }
 })
