@@ -131,6 +131,13 @@ vim.keymap.set({"n", "v", "o"}, "J", "E")
 
 vim.keymap.set({"n"}, "<BS>", "<C-^>")
 
+-- vim-rsi mappings
+vim.keymap.set({"i"}, "<C-A>", "<C-O>^")
+vim.keymap.set({"c"}, "<C-A>", "<Home>")
+vim.keymap.set({"c"}, "<C-B>", "<Left>")
+vim.keymap.set({"c"}, "<C-F>", "<Right>")
+vim.keymap.set({"c"}, "<C-D>", "<Del>")
+
 require("colors")
 require("functions")
 require("gui_settings")
