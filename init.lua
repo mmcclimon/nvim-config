@@ -16,6 +16,7 @@ vim.opt.wildmode = "longest:full,longest"
 vim.opt.wildignore:append({".git","local","build","vendor"})
 vim.opt.list = true
 vim.opt.listchars = { tab = ">-", trail = "~", extends = ">", precedes = "<" }
+vim.opt.winborder = "single"
 
 vim.opt.foldlevelstart=99
 vim.opt.foldopen:remove({"block"})

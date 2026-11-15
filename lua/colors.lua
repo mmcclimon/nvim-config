@@ -19,6 +19,7 @@ if vim.g.colors_name == "gruvbox" then
     vim.api.nvim_set_hl(0, "Repeat", { link = "GruvboxPurple" })
     vim.api.nvim_set_hl(0, "Conditional", { link = "GruvboxPurple" })
     vim.api.nvim_set_hl(0, "Identifier", { fg = "#889c94" })
+    vim.api.nvim_set_hl(0, "GruvboxGreen", { fg = "#b8ba54" })
 
     -- go overrides
     vim.api.nvim_set_hl(0, "@lsp.type.function.go", { link = "GruvboxFg2" })

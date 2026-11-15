@@ -4,25 +4,25 @@
       "rev": "ded1c96d3d9d74634287d722431c26690968a4bf",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
-    "fzf.vim": {
-      "rev": "887e2ee25d95eb7b4df42d7f9bf8da8f724db471",
-      "src": "ssh://git@github.com/mmcclimon/fzf.vim"
-    },
     "gruvbox.nvim": {
       "rev": "48262cda6a8a921b159c8ec3e21b48ccd870b7b2",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
+    },
+    "lazydev.nvim": {
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "mini.nvim": {
+      "rev": "4d32e018f7cfcc0ba95357465516be615c542fef",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
     "nvim-lspconfig": {
       "rev": "443d92c6bea761ab54cdde46fb197a2b4d614bdd",
       "src": "https://github.com/neovim/nvim-lspconfig"
-    },
-    "nvim-surround": {
-      "rev": "8b47db616ef658b8fc27e61db2896aa2f40134de",
-      "src": "https://github.com/kylechui/nvim-surround"
     }
   }
 }

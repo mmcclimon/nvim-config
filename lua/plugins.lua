@@ -71,3 +71,43 @@ require('lualine').setup({
         lualine_z = { "%3p%% (%v,%l)" },
     }
 })
+
+-- mini (lots of stuff, including argwrap + trailing space)
+vim.pack.add({ 'https://github.com/nvim-mini/mini.nvim' })
+
+require('mini.trailspace').setup()
+vim.keymap.set("n", "<Leader>w", MiniTrailspace.trim, { silent = true })
+
+local sj = require('mini.splitjoin')
+sj.setup({
+    mappings = {
+        toggle = '<Leader>a',
+    },
+    split = {
+        hooks_post = {
+            sj.gen_hook.add_trailing_separator(),
+        },
+    },
+    join = {
+        hooks_post = {
+            sj.gen_hook.del_trailing_separator(),
+        }
+    },
+})
+
+require('mini.surround').setup({
+    mappings = {
+        -- vim-surround mappings, they don't make much sense I know them.
+        add = 'ys',
+        delete = 'ds',
+        replace = 'cs',
+
+        -- disable these because they eat the global 's' mapping
+        highlight = '',
+
+        -- these two find commands are plausibly useful but I need to find
+        -- better mappings for them
+        find = '',
+        find_left = '',
+    },
+})
