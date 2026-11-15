@@ -1,5 +1,5 @@
 -- FZF
-vim.pack.add({{ src = "https://github.com/ibhagwan/fzf-lua" }})
+vim.pack.add({ { src = "https://github.com/ibhagwan/fzf-lua" } })
 
 local fzf = require('fzf-lua')
 fzf.setup({
@@ -19,13 +19,22 @@ fzf.setup({
         file_icons = false,
         ignore_current_buffer = true,
     },
-    fzf_colors = {
-        ["fg"]      = {'fg', {'GruvboxFg3', 'Normal'}},
-        ["fg+"]     = {'fg', {'CursorLine', 'CursorColumn', 'Normal'}},
-        ["prompt"]  = {'fg', {'Comment'}},
-        ["pointer"] = {'fg', {'Normal', 'Exception'}},
+    files = {
+        cwd_prompt = true,
     },
-    hls = {
+    git = {
+        files = {
+            cwd_header = false,
+            cwd_prompt = true,
+        },
+    },
+    fzf_colors = {
+        ["fg"]      = { 'fg', { 'GruvboxFg3', 'Normal' } }, ---@diagnostic disable-line
+        ["fg+"]     = { 'fg', { 'CursorLine', 'CursorColumn', 'Normal' } }, ---@diagnostic disable-line
+        ["prompt"]  = { 'fg', { 'Comment' } }, ---@diagnostic disable-line
+        ["pointer"] = { 'fg', { 'Normal', 'Exception' } }, ---@diagnostic disable-line
+    },
+    hls = { ---@diagnostic disable-line
         path_linenr = "LineNr",
         buf_flag_alt = "GruvboxOrange",
         buf_nr = "Statement",
@@ -44,24 +53,17 @@ end
 vim.keymap.set("n", "<Leader>b", ":FzfLua buffers<cr>", { silent = true })
 vim.keymap.set("n", "<C-P>", findFiles, { silent = true })
 
--- vim-surround
-vim.pack.add({{ src = "https://github.com/kylechui/nvim-surround" }})
-require("nvim-surround").setup({
-    highlight = { duration = 250 },
-})
-
 -- lualine (aka airline)
 vim.pack.add({ 'https://github.com/nvim-lualine/lualine.nvim' })
 require('lualine').setup({
     options = {
-        theme = custom_gruvbox,
         section_separators = '',
         component_separators = '',
     },
     sections = {
-        lualine_b = {{"branch", icon = '⎇'}},
+        lualine_b = { { "branch", icon = '⎇' } },
         lualine_x = {
-            {'fileformat', icons_enabled = false },
+            { 'fileformat', icons_enabled = false },
         },
         lualine_y = {
             { 'lsp_status', icons_enabled = false },
