@@ -15,8 +15,18 @@ vim.diagnostic.config({
     },
 })
 
--- language-specifics
+vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
+
+-- language-specifics --
+
+-- cue
+require('nvim-treesitter').install({'cue'})
+vim.lsp.enable('cue')
+
+-- go
 vim.lsp.enable('gopls')
+
+-- lua
 vim.lsp.enable('lua_ls')
 
 -- this is just so that lua_ls works in vim (global definitions)

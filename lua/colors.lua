@@ -27,4 +27,7 @@ if vim.g.colors_name == "gruvbox" then
     vim.api.nvim_set_hl(0, "@lsp.type.operator.go", { link = "Normal" })
     vim.api.nvim_set_hl(0, "@lsp.type.type.go", { fg = "#d79921" }) -- dark yellow
     vim.api.nvim_set_hl(0, "@lsp.type.property.go", { fg = "#c2c2ab" }) -- very faint blue
+
+    -- cue
+    vim.api.nvim_set_hl(0, "@variable.cue", { link = "GruvboxBlue" })
 end
