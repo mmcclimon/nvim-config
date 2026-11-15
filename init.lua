@@ -24,73 +24,6 @@ vim.opt.foldopen:remove({"block"})
 vim.opt.backup = true
 vim.opt.backupdir = vim.fn.expand("~/.config/nvim/backup")
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "gitcommit",
-  callback = function()
-      vim.opt_local.textwidth = 72
-  end
-})
-
-local trailing = vim.api.nvim_create_augroup('trailing', { clear = true })
-
-vim.api.nvim_create_autocmd({'InsertEnter'}, {
-  pattern = '*',
-  group = trailing,
-  callback = function() vim.opt_local.listchars:remove({"trail"}) end
-})
-
-vim.api.nvim_create_autocmd({'InsertLeave'}, {
-  pattern = '*',
-  group = trailing,
-  callback = function() vim.opt_local.listchars:append({trail = "~"}) end
-})
-
---[[
-
-def g:SyntaxItem(): string
-    return synIDattr(synID(line("."), col("."), 0), "name")
-enddef
-
-# Folding
-augroup folding
-    au!
-    au BufReadPre * setlocal foldmethod=indent
-    au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
-augroup END
-
-# }}}
-
-# Mappings ----------------------------------------------------{{{
-# popupmenu bindings
-inoremap <expr><C-e> pumvisible() ? "\<C-p>" : "\<C-e>"
-
-# }}}
-
-# Misc. settings {{{
-# ------------------
-
-g:tex_flavor = "latex"      # plaintex is no good
-g:perl_sub_signatures = 1     # new perls!
-
-# fix crontab bug
-au BufEnter /private/tmp/crontab.* setl backupcopy=yes
-
-# }}}
-
-# Imports {{{
-# -----------
-so ~/.vim/functions.vim   # load custom functions
-so ~/.vim/plugins.vim     # load plugin settings
-so ~/.vim/ale_settings.vim
-so ~/.vim/abbrevs.vim     # I can't type
-so ~/.vim/mto.vim         # mto nonsense
-so ~/.vim/colors.vim      # for patching
-# }}}
-
-# vim:fdm=marker
-# vim:set filetype=vim
-
---]]
 -- mappings
 vim.g.mapleader = ","
 vim.g.maplocalleader = "\\"
@@ -141,6 +74,6 @@ vim.keymap.set({"c"}, "<C-D>", "<Del>")
 
 require("colors")
 require("functions")
-require("gui_settings")
+require("gui-settings")
 require("plugins")
 require("lsp-settings")

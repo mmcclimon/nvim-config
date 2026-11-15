@@ -1,9 +1,9 @@
-local function copy() 
-    vim.cmd([[normal! "+y]]) 
+local function copy()
+    vim.cmd([[normal! "+y]])
 end
 
-local paste = function () 
-    vim.api.nvim_paste(vim.fn.getreg("+"), true, -1) 
+local paste = function ()
+    vim.api.nvim_paste(vim.fn.getreg("+"), true, -1)
 end
 
 local change_scale_factor = function(delta)
