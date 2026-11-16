@@ -19,6 +19,9 @@ if vim.g.neovide then
     vim.keymap.set("n", "<D-=>", function() change_scale_factor(1.1) end)
     vim.keymap.set("n", "<D-->", function() change_scale_factor(1/1.1) end)
 
+    -- cmd-w
+    vim.keymap.set("n", "<D-w>", ":qall<CR>")
+
     -- man these things are terrible
     vim.g.neovide_scroll_animation_length = 0
     vim.g.neovide_cursor_animation_length = 0

@@ -4,7 +4,7 @@ vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' })
 vim.keymap.set({ "n" }, "<LocalLeader>r", vim.lsp.buf.references)
 vim.keymap.set({ "n" }, "<LocalLeader>d", vim.lsp.buf.hover)
 vim.keymap.set({ "n" }, "<LocalLeader>w", vim.diagnostic.open_float)
-vim.keymap.set({ "n" }, "[s", "[d")
+vim.keymap.set({ "n" }, "[s", "[d", { remap = true })
 vim.keymap.set({ "n" }, "]s", "]d", { remap = true })
 
 -- misc. settings
