@@ -26,8 +26,9 @@ if vim.g.colors_name == "gruvbox" then
     -- go overrides
     vim.api.nvim_set_hl(0, "@lsp.type.function.go", { link = "GruvboxFg2" })
     vim.api.nvim_set_hl(0, "@lsp.type.method.go", { link = "GruvboxFg2" })
+    vim.api.nvim_set_hl(0, "@lsp.typemod.function.defaultLibrary.go", { link = "GruvboxOrange" })
     vim.api.nvim_set_hl(0, "@lsp.type.operator.go", { link = "Normal" })
-    vim.api.nvim_set_hl(0, "@lsp.type.type.go", { fg = "#d79921" }) -- dark yellow
+    vim.api.nvim_set_hl(0, "@lsp.type.type.go", { fg = "#92ba95" })     -- aqua-ish
     vim.api.nvim_set_hl(0, "@lsp.type.property.go", { fg = "#c2c2ab" }) -- very faint blue
 
     -- cue
