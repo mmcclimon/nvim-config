@@ -25,7 +25,6 @@ fzf.setup({
     git = {
         files = {
             cwd_header = false,
-            cwd_prompt = true,
         },
     },
     fzf_colors = {
@@ -62,6 +61,11 @@ require('lualine').setup({
     },
     sections = {
         lualine_b = { { "branch", icon = '⎇' } },
+        lualine_c = { {
+            'filename',
+            path = 1, -- relative
+            newfile_status = true,
+        } },
         lualine_x = {
             { 'fileformat', icons_enabled = false },
         },

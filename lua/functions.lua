@@ -37,3 +37,15 @@ local function closeFloats()
 end
 
 vim.keymap.set("n", "<Esc>", closeFloats)
+
+-- stolen from vim-unimpaired, to find git conflict markers
+local function findMarker(reverse)
+    flag = "W"
+    if reverse then
+        flag = "bW"
+    end
+    vim.fn.search([[^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)]], flag)
+end
+
+vim.keymap.set("n", "]n", function() findMarker(false) end)
+vim.keymap.set("n", "[n", function() findMarker(true) end)

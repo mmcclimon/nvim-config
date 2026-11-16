@@ -39,6 +39,7 @@ vim.lsp.enable('cue')
 
 -- go
 vim.lsp.enable('gopls')
+vim.lsp.enable('golangci_lint_ls')
 
 -- lua
 vim.lsp.enable('lua_ls')

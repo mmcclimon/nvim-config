@@ -33,4 +33,8 @@ if vim.g.colors_name == "gruvbox" then
 
     -- cue
     vim.api.nvim_set_hl(0, "@variable.cue", { link = "GruvboxBlue" })
+
+    -- diff
+    vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#98971a" }) -- gruvbox dark green
+    vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#cc241d" }) -- gruvbox dark red
 end

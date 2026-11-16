@@ -22,9 +22,11 @@ if vim.g.neovide then
     -- cmd-w
     vim.keymap.set("n", "<D-w>", ":qall<CR>")
 
+
     -- man these things are terrible
     vim.g.neovide_scroll_animation_length = 0
     vim.g.neovide_cursor_animation_length = 0
 end
 
+vim.o.linespace = 4
 vim.o.guifont = "Berkeley Mono:h11"
