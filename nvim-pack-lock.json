@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "conform.nvim": {
+      "rev": "016802de402556da54c36bd7359b441266b01cdd",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "fzf-lua": {
       "rev": "ded1c96d3d9d74634287d722431c26690968a4bf",
       "src": "https://github.com/ibhagwan/fzf-lua"
@@ -27,6 +31,10 @@
     "nvim-treesitter": {
       "rev": "04f17886f75416dfdc25374c950a52c63f0e98fe",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "tree-sitter-cue": {
+      "rev": "eefee1c1ee76ccf0d7880814155b67c1738d5f89",
+      "src": "https://github.com/cue-lang/tree-sitter-cue"
     }
   }
 }

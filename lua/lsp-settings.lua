@@ -1,4 +1,8 @@
-vim.pack.add({ 'https://github.com/neovim/nvim-lspconfig' })
+vim.pack.add({
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/stevearc/conform.nvim',
+    'https://github.com/nvim-treesitter/nvim-treesitter',
+})
 
 -- keybindings
 vim.keymap.set({ "n" }, "<LocalLeader>r", vim.lsp.buf.references)
@@ -15,12 +19,22 @@ vim.diagnostic.config({
     },
 })
 
-vim.pack.add({ 'https://github.com/nvim-treesitter/nvim-treesitter' })
+require("conform").setup({
+    formatters_by_ft = {
+        go = { "goimports" },
+    },
+    format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "fallback",
+        undojoin = true,
+    },
+})
+
 
 -- language-specifics --
 
 -- cue
-require('nvim-treesitter').install({'cue'})
+require('nvim-treesitter').install({ 'cue' })
 vim.lsp.enable('cue')
 
 -- go

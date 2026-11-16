@@ -10,6 +10,8 @@ require("gruvbox").setup({
 vim.cmd.colorscheme("gruvbox")
 vim.opt.background = "dark"
 
+vim.api.nvim_set_hl(0, "Todo", { fg = "#a08374", bg = "#582829" })
+
 if vim.g.colors_name == "gruvbox" then
     vim.api.nvim_set_hl(0, "Search", { fg = "#444444", bg = "#00f0f0", reverse = true })
     vim.api.nvim_set_hl(0, "Visual", { bg = "#3e3e5e" })
