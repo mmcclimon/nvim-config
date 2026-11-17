@@ -43,25 +43,25 @@ vim.keymap.set("n", "<C-l>", "<C-w>l")
 -- colemak stuff
 -- modal swapping
 vim.keymap.set({ "n", "v", "o" }, "u", "i")
-vim.keymap.set({ "n", "v", "o" }, "U", "I")
+vim.keymap.set({ "n", "v" }, "U", "I")
 
 -- hjkl = hnei
-vim.keymap.set({ "n", "v", "o" }, "h", "h")
-vim.keymap.set({ "n", "v", "o" }, "n", "j")
-vim.keymap.set({ "n", "v", "o" }, "e", "k")
-vim.keymap.set({ "n", "v", "o" }, "i", "l")
-vim.keymap.set({ "n", "v", "o" }, "H", "H")
-vim.keymap.set({ "n", "v", "o" }, "N", "J")
-vim.keymap.set({ "n", "v", "o" }, "E", "K")
-vim.keymap.set({ "n", "v", "o" }, "I", "L")
+vim.keymap.set({ "n", "v" }, "h", "h")
+vim.keymap.set({ "n", "v" }, "n", "j")
+vim.keymap.set({ "n", "v" }, "e", "k")
+vim.keymap.set({ "n", "v" }, "i", "l")
+vim.keymap.set({ "n", "v" }, "H", "H")
+vim.keymap.set({ "n", "v" }, "N", "J")
+vim.keymap.set({ "n", "v" }, "E", "K")
+vim.keymap.set({ "n", "v" }, "I", "L")
 
 -- stuff stolen by the above
-vim.keymap.set({ "n", "v", "o" }, "k", "n")
-vim.keymap.set({ "n", "v", "o" }, "K", "N")
-vim.keymap.set({ "n", "v", "o" }, "l", "u")
-vim.keymap.set({ "n", "v", "o" }, "L", "U")
-vim.keymap.set({ "n", "v", "o" }, "j", "e")
-vim.keymap.set({ "n", "v", "o" }, "J", "E")
+vim.keymap.set({ "n", "v" }, "k", "n")
+vim.keymap.set({ "n", "v" }, "K", "N")
+vim.keymap.set({ "n", "v" }, "l", "u")
+vim.keymap.set({ "n", "v" }, "L", "U")
+vim.keymap.set({ "n", "v" }, "j", "e")
+vim.keymap.set({ "n", "v" }, "J", "E")
 
 vim.keymap.set({ "n" }, "<BS>", "<C-^>")
 
@@ -71,6 +71,10 @@ vim.keymap.set({ "c" }, "<C-A>", "<Home>")
 vim.keymap.set({ "c", "i" }, "<C-B>", "<Left>")
 vim.keymap.set({ "c", "i" }, "<C-F>", "<Right>")
 vim.keymap.set({ "c", "i" }, "<C-D>", "<Del>")
+
+-- this is obnoxious with my colemak mappings, and often causes me to delete
+-- an extra character in visual block mode
+vim.keymap.del({"v"}, "in")
 
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "qf",
