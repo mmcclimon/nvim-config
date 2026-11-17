@@ -101,17 +101,54 @@ sj.setup({
 
 require('mini.surround').setup({
     mappings = {
-        -- vim-surround mappings, they don't make much sense I know them.
-        add = 'ys',
-        delete = 'ds',
-        replace = 'cs',
-
-        -- disable these because they eat the global 's' mapping
         highlight = '',
 
-        -- these two find commands are plausibly useful but I need to find
-        -- better mappings for them
-        find = '',
-        find_left = '',
+        -- vim-surround mappings, they don't make much sense but I know them.
+        -- add = 'ys',
+        -- delete = 'ds',
+        -- replace = 'cs',
+        -- find = '',
+        -- find_left = '',
     },
 })
+
+local formatBlame = function(line_porcelain, _, idx)
+    local hash = string.sub(line_porcelain.hash, 0, 7)
+    local vals
+    if hash ~= "0000000" then
+        local date_text = tostring(os.date("%Y-%m-%d", line_porcelain.author_time))
+        vals = {
+            {
+                textValue = hash,
+                hl = hash,
+            },
+            {
+                textValue = date_text,
+                hl = "GruvboxAqua",
+            },
+            {
+                textValue = line_porcelain.author,
+                hl = "Normal",
+            },
+        }
+    else
+        vals = {
+            { textValue = "0000000",          hl = "Comment" },
+            { textValue = "",                 hl = "Comment" },
+            { textValue = "Not yet commited", hl = "Comment" },
+        }
+    end
+    return {
+        idx = idx,
+        values = vals,
+        format = "%s %s %s",
+    }
+end
+
+vim.pack.add({ "https://github.com/FabijanZulj/blame.nvim" })
+require('blame').setup({
+    commit_detail_view = "split",
+    format_fn = formatBlame,
+})
+
+vim.keymap.set({ "n" }, "<Leader>g", ":BlameToggle<CR>")
