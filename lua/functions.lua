@@ -1,20 +1,18 @@
-local function autoSaveWinView()
-    if vim.w.savedBufView == nil then
-        vim.w.savedBufView = {}
-    end
+local savedBufView = {}
 
-    vim.w.savedBufView[vim.fn.bufnr("%")] = vim.fn.winsaveview()
+local function autoSaveWinView()
+    savedBufView[vim.api.nvim_get_current_buf()] = vim.fn.winsaveview()
 end
 
 local function autoRestoreWinView()
-    local buf = vim.fn.bufnr("%")
-    if vim.w.savedBufView ~= nil and vim.w.savedBufView[buf] ~= nil then
+    local buf = vim.api.nvim_get_current_buf()
+    if savedBufView[buf] ~= nil then
         local v = vim.fn.winsaveview()
         local atStartOfFile = v.lnum == 1 and v.col == 0
-        if atStartOfFile then
-            vim.fn.winrestview(vim.w.savedBufView[buf])
+        if atStartOfFile and not vim.o.diff then
+            vim.fn.winrestview(savedBufView[buf])
         end
-        vim.w.savedBufView[buf] = nil
+        savedBufView[buf] = nil
     end
 end
 
@@ -43,7 +41,7 @@ vim.keymap.set("n", "<Esc>", closeFloats)
 
 -- stolen from vim-unimpaired, to find git conflict markers
 local function findMarker(reverse)
-    flag = "W"
+    local flag = "W"
     if reverse then
         flag = "bW"
     end
