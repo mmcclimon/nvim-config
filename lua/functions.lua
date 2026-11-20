@@ -18,13 +18,16 @@ local function autoRestoreWinView()
     end
 end
 
+local bufGroup = vim.api.nvim_create_augroup('winsave', { clear = true })
 vim.api.nvim_create_autocmd("BufLeave", {
     pattern = "*",
+    group = bufGroup,
     callback = autoSaveWinView,
 })
 
 vim.api.nvim_create_autocmd("BufEnter", {
     pattern = "*",
+    group = bufGroup,
     callback = autoRestoreWinView,
 })
 

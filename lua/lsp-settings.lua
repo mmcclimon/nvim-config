@@ -22,10 +22,11 @@ vim.diagnostic.config({
 require("conform").setup({
     formatters_by_ft = {
         go = { "goimports" },
+        perl = {},  -- perltidy is so obnoxious to me
     },
     format_on_save = {
         timeout_ms = 500,
-        lsp_format = "fallback",
+        lsp_format = "never",
         undojoin = true,
     },
 })
@@ -47,3 +48,6 @@ vim.lsp.enable('lua_ls')
 -- this is just so that lua_ls works in vim (global definitions)
 vim.pack.add({ 'https://github.com/folke/lazydev.nvim' })
 require('lazydev').setup()
+
+-- perl
+vim.lsp.enable('perl_lsp')

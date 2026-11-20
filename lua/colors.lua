@@ -23,6 +23,9 @@ if vim.g.colors_name == "gruvbox" then
     vim.api.nvim_set_hl(0, "Identifier", { fg = "#889c94" })
     vim.api.nvim_set_hl(0, "GruvboxGreen", { fg = "#b8ba54" })
 
+    vim.api.nvim_set_hl(0, "MiniJump2dSpot", { fg = "#ffb400" })
+    vim.api.nvim_set_hl(0, "MiniJump2dSpotAhead", { fg = "#c68c00" })
+
     -- go overrides
     vim.api.nvim_set_hl(0, "@lsp.type.function.go", { link = "GruvboxFg2" })
     vim.api.nvim_set_hl(0, "@lsp.type.method.go", { link = "GruvboxFg2" })
@@ -37,4 +40,17 @@ if vim.g.colors_name == "gruvbox" then
     -- diff
     vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#98971a" }) -- gruvbox dark green
     vim.api.nvim_set_hl(0, "DiffDelete", { fg = "#cc241d" }) -- gruvbox dark red
+
+    -- perl / pod
+    vim.api.nvim_set_hl(0, "@lsp.type.variable.perl", { link = "Identifier" })
+    vim.api.nvim_set_hl(0, "@lsp.type.property.perl", { fg = "#c2c2ab" }) -- very faint blue
+    vim.api.nvim_set_hl(0, "@lsp.type.keyword.perl", { fg = "#92ba95" })     -- aqua-ish
+    vim.api.nvim_set_hl(0, "@lsp.type.method.perl", { link = "GruvboxFg2" })
+    vim.api.nvim_set_hl(0, "perlPOD", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "podOrdinary", { link = "Comment" })
+    vim.api.nvim_set_hl(0, "podCommand", { fg = "#586878" })
+    vim.api.nvim_set_hl(0, "podCmdText", { fg = "#587858" })
+    vim.api.nvim_set_hl(0, "podFormat", { fg = "#70647b" })
+    vim.api.nvim_set_hl(0, "podVerbatim", { fg = "#9394a0" })
+
 end

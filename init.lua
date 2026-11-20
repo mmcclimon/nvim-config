@@ -60,8 +60,8 @@ vim.keymap.set({ "n", "v" }, "k", "n")
 vim.keymap.set({ "n", "v" }, "K", "N")
 vim.keymap.set({ "n", "v" }, "l", "u")
 vim.keymap.set({ "n", "v" }, "L", "U")
-vim.keymap.set({ "n", "v" }, "j", "e")
-vim.keymap.set({ "n", "v" }, "J", "E")
+vim.keymap.set({ "n", "v", "o" }, "j", "e")
+vim.keymap.set({ "n", "v", "o" }, "J", "E")
 
 vim.keymap.set({ "n" }, "<BS>", "<C-^>")
 

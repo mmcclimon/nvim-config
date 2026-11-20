@@ -112,6 +112,22 @@ require('mini.surround').setup({
     },
 })
 
+require('mini.jump2d').setup({
+    view = {
+        dim = true,
+        n_steps_ahead = 2,
+    },
+    mappings = {
+        start_jumping = '',
+    },
+    silent = true,
+})
+
+vim.keymap.set({"n", "v"}, "<Leader>f", function()
+    MiniJump2d.start(MiniJump2d.builtin_opts.single_character)
+end)
+
+
 local formatBlame = function(line_porcelain, _, idx)
     local hash = string.sub(line_porcelain.hash, 0, 7)
     local vals
